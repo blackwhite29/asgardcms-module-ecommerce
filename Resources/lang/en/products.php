@@ -11,6 +11,7 @@
 return [
 	'title' => [
 		'products' => 'Products',
+		'ecommerce'=>'Ecommerce',
 		'create product' => 'Create a product',
 		'edit product' => 'Edit a product',
 	],
