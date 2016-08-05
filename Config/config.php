@@ -9,7 +9,9 @@
 		*/
 		'partials' => [
 			'translatable' => [
-				'create' => [],
+				'create' => [
+
+				],
 				'edit' => [],
 			],
 			'normal' => [

@@ -31,7 +31,8 @@ class ProductController extends AdminBaseController
      */
     public function create()
     {
-        return view('ecommerce::create');
+	    $this->assetPipeline->requireJs('ckeditor.js');
+        return view('ecommerce::admin.create');
     }
 
     /**
@@ -65,7 +66,11 @@ class ProductController extends AdminBaseController
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy(Product $product)
     {
+	    $this->product->destroy($product);
+
+	    return redirect()->route('admin.ecommerce.product.index')
+		    ->withSuccess(trans('ecommerce::messages.product deleted'));
     }
 }

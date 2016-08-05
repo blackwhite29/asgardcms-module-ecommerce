@@ -59,4 +59,7 @@ return [
 	'create resource' => 'Create products',
 	'edit resource' => 'Edit products',
 	'destroy resource' => 'Delete products',
+	'messages'=>[
+		'product deleted'=>'Delete product successful!'
+	],
 ];
