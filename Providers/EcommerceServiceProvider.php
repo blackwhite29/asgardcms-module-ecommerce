@@ -32,7 +32,7 @@ class EcommerceServiceProvider extends ServiceProvider
     public function boot()
     {
 	    $this->publishConfig('ecommerce', 'config');
-	    $this->publishConfig('ecommerce', 'category');
+
         $this->publishConfig('ecommerce', 'permissions');
 	    $this->app[TagManager::class]->registerNamespace(new Product());
     }

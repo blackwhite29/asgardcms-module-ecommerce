@@ -10,11 +10,13 @@
     "active": 1,
     "order": 1,
     "providers": [
+        "Modules\\Ecommerce\\Providers\\RouteServiceProvider",
         "Modules\\Ecommerce\\Providers\\EcommerceServiceProvider",
-        "Modules\\Ecommerce\\Providers\\RouteServiceProvider"
+        "Modules\\Ecommerce\\Providers\\CategoryServiceProvider"
+
     ],
     "aliases":{},
     "files": [
-        
+        "composers.php"
     ]
 }

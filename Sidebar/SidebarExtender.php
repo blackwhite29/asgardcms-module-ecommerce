@@ -51,7 +51,7 @@
 						);
 					});
 					$item->item(trans('ecommerce::categories.title.categories'), function (Item $item) {
-						$item->route('admin.ecommerce.product.index');
+						$item->route('admin.ecommerce.category.index');
 						$item->icon('fa fa-bars');
 						$item->authorize(
 							$this->auth->hasAccess('ecommerce.category.index')

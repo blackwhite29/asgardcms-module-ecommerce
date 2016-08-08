@@ -9,7 +9,7 @@ use Modules\Core\Traits\NamespacedEntity;
 class Category extends Model
 {
 	use Translatable, NamespacedEntity;
-	protected $table='	category_categories';
+	protected $table='category_categories';
     protected $fillable = [
 	    'category_id',
 	    'parent',
@@ -31,7 +31,6 @@ class Category extends Model
 		'description',
 		'priority',
 		'slug',
-		'thumb',
 		'metadata',
 
 	];

@@ -2,12 +2,12 @@
 
 @section('content-header')
     <h1>
-        {{ trans('ecommerce::products.title.create product') }}
+        {{ trans('ecommerce::categories.title.create category') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-        <li><a href="{{ URL::route('admin.ecommerce.product.index') }}">{{ trans('ecommerce::products.title.products') }}</a></li>
-        <li class="active">{{ trans('ecommerce::products.title.create product') }}</li>
+        <li><a href="{{ URL::route('admin.ecommerce.category.index') }}">{{ trans('ecommerce::categories.title.categories') }}</a></li>
+        <li class="active">{{ trans('ecommerce::categories.title.create category') }}</li>
     </ol>
 @stop
 
@@ -20,21 +20,21 @@
 @stop
 
 @section('content')
-    {!! Form::open(['route' => ['admin.ecommerce.product.store'], 'method' => 'post']) !!}
+    {!! Form::open(['route' => ['admin.ecommerce.category.store'], 'method' => 'post']) !!}
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="nav-tabs-custom">
-                @include('partials.form-tab-headers', ['fields' => ['title', 'body']])
+                @include('partials.form-tab-headers', ['fields' => ['name', 'slug']])
                 <div class="tab-content">
                     <?php $i = 0; ?>
                     <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
                     <?php ++$i; ?>
                     <div class="tab-pane {{ App::getLocale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                        @include('ecommerce::admin.partials.create-fields', ['lang' => $locale])
+                        @include('ecommerce::admin.category.partials.create-fields', ['lang' => $locale])
                     </div>
                     <?php endforeach; ?>
-                    <?php if (config('asgard.ecommerce.config.partials.normal.create') !== []): ?>
-                        <?php foreach (config('asgard.ecommerce.config.partials.normal.create') as $partial): ?>
+                    <?php if (config('asgard.ecommerce.category.partials.normal.create') !== []): ?>
+                        <?php foreach (config('asgard.ecommerce.category.partials.normal.create') as $partial): ?>
                             @include($partial)
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -42,23 +42,12 @@
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
                         <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
-                        <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('admin.ecommerce.product.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
+                        <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('admin.ecommerce.category.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                     </div>
                 </div>
             </div> {{-- end nav-tabs-custom --}}
         </div>
-        <div class="col-md-4">
-			<div class="box box-primary">
-             <div class="box-body">
-               @tags('asgardcms/ecommerce')
-               </div>
-            </div>
-            <div class="box box-primary">
-                <div class="box-body">
-                    @tags('asgardcms/ecommerce')
-                </div>
-            </div>
-        </div>
+
     </div>
 
     {!! Form::close() !!}
